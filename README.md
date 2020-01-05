@@ -1,11 +1,11 @@
 Android Week View
 =================
 
-[![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/Android-Week-View/Lobby)
+**Android Week View** is an android library to display calendars (week view or day view) within the app. It supports custom styling. Clone from [Android-Week-View](https://github.com/alamkanak/Android-Week-View/).
 
-**Android Week View** is an android library to display calendars (week view or day view) within the app. It supports custom styling.
+++ Variation - Vertical divider Added
 
-![](images/screen-shot.png)
+![](images/device-2020-01-05-015714.png)
 
 Features
 ------------
@@ -17,52 +17,34 @@ Features
 * Infinite horizontal scrolling
 * Live preview of custom styling in xml preview window
 
-Who uses it
----------------
-
-* [Series Addict](https://play.google.com/store/apps/details?id=com.alamkanak.seriesaddict)
-* Using the library? Just [tweet me](https://twitter.com/alamkanak) or [send me an email](mailto:alam.kanak@gmail.com).
-
 Usage
 ---------
-
-1. Import the library into your project.
-  * Grab via maven
-  
-    ```xml
-    <dependency>
-      <groupId>com.github.alamkanak</groupId>
-      <artifactId>android-week-view</artifactId>
-      <version>1.2.6</version>
-      <type>aar</type>
-    </dependency>
-    ```
-  * Grab via gradle
-  
-    ```groovy
-    compile 'com.github.alamkanak:android-week-view:1.2.6'
-    ```
-2. Add WeekView in your xml layout.
+1. Add WeekView in your xml layout.
 
     ```xml
     <com.alamkanak.weekview.WeekView
-            android:id="@+id/weekView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:eventTextColor="@android:color/white"
-            app:textSize="12sp"
-            app:hourHeight="60dp"
-            app:headerColumnPadding="8dp"
-            app:headerColumnTextColor="#8f000000"
-            app:headerRowPadding="12dp"
-            app:columnGap="8dp"
-            app:noOfVisibleDays="3"
-            app:headerRowBackgroundColor="#ffefefef"
-            app:dayBackgroundColor="#05000000"
-            app:todayBackgroundColor="#1848adff"
-            app:headerColumnBackground="#ffffffff"/>
+        android:id="@+id/weekView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:dayBackgroundColor="#FFFFFF"
+        app:eventTextColor="@android:color/white"
+        app:headerColumnBackground="#ffffffff"
+        app:headerColumnPadding="8dp"
+        app:headerColumnTextColor="@color/toolbar_text"
+        app:headerRowBackgroundColor="#FFFFFF"
+        app:headerRowPadding="12dp"
+        app:hourHeight="60dp"
+        app:futureBackgroundColor="@color/accent"
+        app:noOfVisibleDays="5"
+        app:textSize="12sp"
+        app:nowLineColor="@color/accent"
+        app:nowLineThickness="2dp"
+        app:todayBackgroundColor="#1848adff"
+        app:showNowLine="true"
+        app:eventCornerRadius="5dp"
+        app:todayHeaderTextColor="@color/accent" />
     ```
-3. Write the following code in your java file.
+2. Write the following code in your java file.
 
     ```java
     // Get a reference for the week view in the layout.
@@ -78,9 +60,9 @@ Usage
     // Set long press listener for events.
     mWeekView.setEventLongPressListener(mEventLongPressListener);
     ```
-4. Implement `WeekView.MonthChangeListener`, `WeekView.EventClickListener`, `WeekView.EventLongPressListener` according to your need.
+3. Implement `WeekView.MonthChangeListener`, `WeekView.EventClickListener`, `WeekView.EventLongPressListener` according to your need.
 
-5. Provide the events for the `WeekView` in `WeekView.MonthChangeListener.onMonthChange()` callback. Please remember that the calendar pre-loads events of three consecutive months to enable lag-free scrolling.
+4. Provide the events for the `WeekView` in `WeekView.MonthChangeListener.onMonthChange()` callback. Please remember that the calendar pre-loads events of three consecutive months to enable lag-free scrolling.
 
     ```java
     MonthLoader.MonthChangeListener mMonthChangeListener = new MonthLoader.MonthChangeListener() {
@@ -144,105 +126,13 @@ Use the following interfaces according to your need.
 - `mWeekView.setEmptyViewLongPressListener()` to get a callback when any empty space is long pressed
 - `mWeekView.setDateTimeInterpreter()` to set your own labels for the calendar header row and header column
 - `mWeekView.setScrollListener()` to get an event every time the first visible day has changed
+- `mWeekView.setPinchListener()` to get an event when the zoom scale reaches maximum
 
 Sample
 ----------
 
-There is also a [sample app](https://github.com/alamkanak/Android-Week-View/tree/master/sample) to get you started.
+There is also a [sample app](https://github.com/developersunesis/Android-Week-View/tree/master/sample) to get you started.
 
-To do
+Source
 -------
-
-* Add event touch feedback selector
-* Show events that expand multiple days properly
-
-Changelog
----------
-
-**Version 1.2.6**
-
-* Add empty view click listener
-* Fix padding bug
-* Fix bug when setting colors of different components
-* Add ability to turn off fling gesture
-* Add example of how to load events asynchronously in the sample app
-
-**Version 1.2.5**
-
-* Add support for using subclasses of `WeekViewEvent`
-* Fix scroll animation
-* Add support for semi-transparent header colors
-
-**Version 1.2.4**
-
-* **NOTE:** If you are using `WeekView.MonthChangeListener`, make sure to change it into `MonthLoader.MonthChangeListener`
-* Add support to have loaders other than MonthViewLoader
-* Add pinch to zoom support
-* Add support for location
-* Add ability to have different colors for past, future, weekend days
-* Add support for "now" line
-
-**Version 1.2.3**
-
-* Get callbacks when scrolling horizontally
-* `goToHour` and `goToDate` methods has been fixed
-* Use `getFirstVisibleHour` method to get the first visible hour in the week view
-
-**Version 1.2.1**
-
-* Better scrolling added
-* Get callbacks when empty view is tapped/long pressed
-* Control the speed of scrolling
-* Support for multiple language added
-* Ability to set your own interpreter for header row and column added
-
-**Version 1.1.7**
-
-* You can now dynamically scroll to an hour of your preference.
-
-**Version 1.1.6**
-
-* Added support for events that expands to multiple days
-
-**Version 1.1.5**
-
-* A bug related to overlapping events fixed
-* You can now programmatically get first and last visible day in the week view
-
-**Version 1.1.4**
-
-* Small bug fixed
-
-**Version 1.1.3**
-
-* Margins support added for overlapping events
-
-**Version 1.1.2**
-
-* Small bugs fixed
-* Hour separator inconsistency fixed
-
-**Version 1.1.1**
-
-* Overlapping event bug fixed
-
-**Version 1.1.0**
-
-* Added support for overlapping events
-
-License
-----------
-
-    Copyright 2014 Raquib-ul-Alam
-
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
-
-       http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
+Original source from [Android-Week-View](https://github.com/alamkanak/Android-Week-View/)
