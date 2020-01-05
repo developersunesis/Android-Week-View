@@ -464,7 +464,7 @@ public class WeekView extends View {
                 mNewHourHeight = Math.round(mHourHeight * detector.getScaleFactor());
                 invalidate();
 
-                if(mNewHourHeight > mMaxHourHeight){
+                if(mNewHourHeight > mMaxHourHeight && pinchListener != null){
                     pinchListener.onReachedMax(detector);
                 }
                 return true;
