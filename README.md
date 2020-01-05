@@ -5,7 +5,7 @@ Android Week View
 
 ++ Variation - Vertical divider Added
 
-![](images/device-2020-01-04-235528.png)
+![](images/device-2020-01-05-015714.png)
 
 Features
 ------------
@@ -135,4 +135,4 @@ There is also a [sample app](https://github.com/developersunesis/Android-Week-Vi
 
 Source
 -------
-View original source from [Android-Week-View](https://github.com/alamkanak/Android-Week-View/)
+Original source from [Android-Week-View](https://github.com/alamkanak/Android-Week-View/)
